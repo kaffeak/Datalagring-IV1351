@@ -37,12 +37,12 @@ VALUES
 
 INSERT INTO student (person_ssn,contact_person_id)
 VALUES
-  ('3827841425',9),
-  ('7618844234',10),
-  ('6252015663',11),
-  ('6800022063',11),
-  ('0415637933',12),
-  ('9158353929',12);
+  ('3827841425',1),
+  ('7618844234',2),
+  ('6252015663',3),
+  ('6800022063',3),
+  ('0415637933',4),
+  ('9158353929',4);
 
 
 INSERT INTO student_sibling (student_id,student_id1)
@@ -83,22 +83,22 @@ VALUES
   (4,'16-02-23','100000','150000');
 
 
-INSERT INTO nonbookable_timeslot (lesson_start,instructor_id,schedule_date,lesson_end)
+INSERT INTO nonbookable_timeslot (nonbookable_time_start,instructor_id,schedule_date,nonbookable_time_end)
 VALUES
   ('160000',1,'14-09-23','120000'),
   ('070000',1,'13-03-24','170000'),
   ('080000',1,'27-01-24','100000'),
-  ('110000',1,'10-09-24','120000'),
+  ('110000',2,'10-09-24','120000'),
   ('110000',2,'27-01-23','090000'),
   ('140000',2,'09-05-23','100000'),
-  ('110000',2,'14-08-24','130000'),
-  ('150000',2,'10-09-24','140000'),
+  ('110000',3,'14-08-24','130000'),
+  ('150000',3,'10-09-24','140000'),
   ('090000',3,'13-08-23','150000'),
-  ('120000',3,'25-03-24','160000');
-INSERT INTO nonbookable_timeslot (lesson_start,instructor_id,schedule_date,lesson_end)
+  ('120000',4,'25-03-24','160000');
+INSERT INTO nonbookable_timeslot (nonbookable_time_start,instructor_id,schedule_date,nonbookable_time_end)
 VALUES
-  ('110000',3,'02-07-23','150000'),
-  ('130000',3,'16-02-23','140000');
+  ('110000',4,'02-07-23','150000'),
+  ('130000',4,'16-02-23','140000');
 
 
 
@@ -129,7 +129,7 @@ VALUES
   ('Piano','elit,','7842');
 
 
-INSERT INTO rented (school_instrument_id,student_id,rent_start)
+INSERT INTO rented (school_instrument_id,student_id,rent_start_date)
 VALUES
   (1,1,'11-03-24'),
   (2,1,'18-11-24'),
@@ -188,7 +188,7 @@ VALUES
   ('ensemble','3');
 
 
-INSERT INTO lesson (lesson_start,lesson_end,lesson_price_id,payment_id,student_payment_id,date)
+INSERT INTO lesson (lesson_start,lesson_end,lesson_price_id,payment_id,student_payment_id,date_of_lesson)
 VALUES
   ('150000','080000',1,1,1,'06-06-23'),
   ('130000','120000',2,2,2,'24-06-23'),
