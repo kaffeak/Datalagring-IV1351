@@ -22,7 +22,7 @@ ALTER TABLE price ADD CONSTRAINT PK_price PRIMARY KEY (type,level);
 
 
 CREATE TABLE school_instrument (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  instrument_name VARCHAR(30) NOT NULL,
  brand VARCHAR(30) NOT NULL,
  price INT NOT NULL
@@ -32,7 +32,7 @@ ALTER TABLE school_instrument ADD CONSTRAINT PK_school_instrument PRIMARY KEY (i
 
 
 CREATE TABLE contact_person (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  person_ssn VARCHAR(10) NOT NULL
 );
 
@@ -40,7 +40,7 @@ ALTER TABLE contact_person ADD CONSTRAINT PK_contact_person PRIMARY KEY (id);
 
 
 CREATE TABLE instructor (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  person_ssn VARCHAR(10) NOT NULL
 );
 
@@ -48,7 +48,7 @@ ALTER TABLE instructor ADD CONSTRAINT PK_instructor PRIMARY KEY (id);
 
 
 CREATE TABLE lesson_price (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  type VARCHAR(10),
  level VARCHAR(10)
 );
@@ -57,47 +57,47 @@ ALTER TABLE lesson_price ADD CONSTRAINT PK_lesson_price PRIMARY KEY (id);
 
 
 CREATE TABLE payment (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  total_amount INT,
- instructor_id GENERATED ALWAYS AS IDENTITY NOT NULL
+ instructor_id INT GENERATED ALWAYS AS IDENTITY NOT NULL
 );
 
 ALTER TABLE payment ADD CONSTRAINT PK_payment PRIMARY KEY (id);
 
 
 CREATE TABLE schedule (
- instructor_id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ instructor_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  date VARCHAR(8) NOT NULL,
- work_start TIMESTAMP(10) NOT NULL,
- work_end TIMESTAMP(10) NOT NULL
+ work_start TIMESTAMP(6) NOT NULL,
+ work_end TIMESTAMP(6) NOT NULL
 );
 
 ALTER TABLE schedule ADD CONSTRAINT PK_schedule PRIMARY KEY (instructor_id,date);
 
 
 CREATE TABLE student (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  person_ssn VARCHAR(10) NOT NULL,
- contact_person_id GENERATED ALWAYS AS IDENTITY NOT NULL
+ contact_person_id INT GENERATED ALWAYS AS IDENTITY NOT NULL
 );
 
 ALTER TABLE student ADD CONSTRAINT PK_student PRIMARY KEY (id);
 
 
 CREATE TABLE student_payment (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  sibling_discount FLOAT(10),
  rental_cost INT,
  lessons_price INT,
- student_id GENERATED ALWAYS AS IDENTITY NOT NULL
+ student_id INT GENERATED ALWAYS AS IDENTITY NOT NULL
 );
 
 ALTER TABLE student_payment ADD CONSTRAINT PK_student_payment PRIMARY KEY (id);
 
 
 CREATE TABLE student_sibling (
- student_id GENERATED ALWAYS AS IDENTITY NOT NULL,
- student_id1 GENERATED ALWAYS AS IDENTITY NOT NULL
+ student_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+ student_id1 INT GENERATED ALWAYS AS IDENTITY NOT NULL
 );
 
 ALTER TABLE student_sibling ADD CONSTRAINT PK_student_sibling PRIMARY KEY (student_id,student_id1);
@@ -105,29 +105,30 @@ ALTER TABLE student_sibling ADD CONSTRAINT PK_student_sibling PRIMARY KEY (stude
 
 CREATE TABLE teachable_instrument (
  instrumen_name VARCHAR(30) NOT NULL,
- instructor_id GENERATED ALWAYS AS IDENTITY NOT NULL
+ instructor_id INT GENERATED ALWAYS AS IDENTITY NOT NULL
 );
 
 ALTER TABLE teachable_instrument ADD CONSTRAINT PK_teachable_instrument PRIMARY KEY (instrumen_name,instructor_id);
 
 
 CREATE TABLE lesson (
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
- lesson_start TIMESTAMP(10) NOT NULL,
- lesson_end TIMESTAMP(10) NOT NULL,
- lesson_price_id GENERATED ALWAYS AS IDENTITY,
- payment_id GENERATED ALWAYS AS IDENTITY,
- student_payment_id GENERATED ALWAYS AS IDENTITY
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+ lesson_start TIMESTAMP(6) NOT NULL,
+ lesson_end TIMESTAMP(6) NOT NULL,
+ lesson_price_id INT GENERATED ALWAYS AS IDENTITY,
+ payment_id INT GENERATED ALWAYS AS IDENTITY,
+ student_payment_id INT GENERATED ALWAYS AS IDENTITY,
+ date_of_lesson VARCHAR(8) NOT NULL
 );
 
 ALTER TABLE lesson ADD CONSTRAINT PK_lesson PRIMARY KEY (id);
 
 
 CREATE TABLE nonbookable_timeslot (
- nonbookable_time_start TIMESTAMP(10) NOT NULL,
- instructor_id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ nonbookable_time_start TIMESTAMP(6) NOT NULL,
+ instructor_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  date VARCHAR(8) NOT NULL,
- nonbookable_time_end TIMESTAMP(10) NOT NULL
+ nonbookable_time_end TIMESTAMP(6) NOT NULL
 );
 
 ALTER TABLE nonbookable_timeslot ADD CONSTRAINT PK_nonbookable_timeslot PRIMARY KEY (nonbookable_time_start,instructor_id,date);
@@ -135,7 +136,7 @@ ALTER TABLE nonbookable_timeslot ADD CONSTRAINT PK_nonbookable_timeslot PRIMARY 
 
 CREATE TABLE personal_skill (
  instrument VARCHAR(10) NOT NULL,
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  skill VARCHAR(10) NOT NULL
 );
 
@@ -143,16 +144,16 @@ ALTER TABLE personal_skill ADD CONSTRAINT PK_personal_skill PRIMARY KEY (instrum
 
 
 CREATE TABLE rented (
- school_instrument_id GENERATED ALWAYS AS IDENTITY NOT NULL,
- id GENERATED ALWAYS AS IDENTITY NOT NULL,
- rent_start TIMESTAMP(10) NOT NULL
+ school_instrument_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+ id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+ rent_start_date VARCHAR(8) NOT NULL
 );
 
 ALTER TABLE rented ADD CONSTRAINT PK_rented PRIMARY KEY (school_instrument_id,id);
 
 
 CREATE TABLE ensemble (
- lesson_id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ lesson_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  min_number_of_students INT NOT NULL,
  max_number_of_students INT NOT NULL,
  genre VARCHAR(10)
@@ -162,7 +163,7 @@ ALTER TABLE ensemble ADD CONSTRAINT PK_ensemble PRIMARY KEY (lesson_id);
 
 
 CREATE TABLE group_lesson (
- lesson_id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ lesson_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  min_number_of_students INT NOT NULL,
  max_number_of_students INT NOT NULL,
  specified_instrument VARCHAR(10),
@@ -173,7 +174,7 @@ ALTER TABLE group_lesson ADD CONSTRAINT PK_group_lesson PRIMARY KEY (lesson_id);
 
 
 CREATE TABLE individual (
- lesson_id GENERATED ALWAYS AS IDENTITY NOT NULL,
+ lesson_id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  level VARCHAR(10) NOT NULL
 );
 
