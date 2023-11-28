@@ -1,3 +1,6 @@
+CREATE TYPE LESSON_TYPE AS ENUM ('individual', 'group', 'ensamble');
+CREATE TYPE SKILL_LEVEL AS ENUM ('beginner', 'intermediate', 'advanced');
+
 CREATE TABLE instrument (
  instrument_name VARCHAR(50) NOT NULL
 );
