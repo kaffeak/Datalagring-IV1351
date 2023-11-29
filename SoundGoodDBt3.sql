@@ -8,6 +8,12 @@ CREATE TABLE instrument (
 ALTER TABLE instrument ADD CONSTRAINT PK_instrument PRIMARY KEY (instrument_name);
 
 
+CREATE TABLE month (
+ id INT NOT NULL,
+ name CHAR(5) NOT NULL
+);
+
+
 CREATE TABLE person (
  ssn VARCHAR(10) NOT NULL,
  first_name VARCHAR(100) NOT NULL,
@@ -42,6 +48,12 @@ CREATE TABLE school_instrument (
 ALTER TABLE school_instrument ADD CONSTRAINT PK_school_instrument PRIMARY KEY (id);
 
 
+CREATE TABLE weekday (
+ id INT NOT NULL,
+ name CHAR(10) NOT NULL
+);
+
+
 CREATE TABLE contact_person (
  id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  person_ssn VARCHAR(10) NOT NULL
@@ -62,8 +74,7 @@ ALTER TABLE instructor ADD CONSTRAINT PK_instructor PRIMARY KEY (id);
 CREATE TABLE payment (
  id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  total_amount INT,
- instructor_id INT NOT NULL,
- month_id INT NOT NULL
+ instructor_id INT NOT NULL
 );
 
 ALTER TABLE payment ADD CONSTRAINT PK_payment PRIMARY KEY (id);
@@ -93,8 +104,7 @@ CREATE TABLE student_payment (
  sibling_discount FLOAT(10),
  rental_cost INT,
  lessons_price INT,
- student_id INT NOT NULL,
- month_id INT NOT NULL
+ student_id INT NOT NULL
 );
 
 ALTER TABLE student_payment ADD CONSTRAINT PK_student_payment PRIMARY KEY (id);
@@ -191,14 +201,6 @@ CREATE TABLE individual (
  level SKILL_LEVEL NOT NULL,
  instrument_name VARCHAR(50) NOT NULL
 );
-
-
-CREATE TABLE month (
-	id INT NOT NULL,
-	name VARCHAR(4) NOT NULL
-);
-	
-
 
 ALTER TABLE individual ADD CONSTRAINT PK_individual PRIMARY KEY (lesson_id);
 

@@ -1,4 +1,5 @@
-SELECT CASE
+SELECT 
+        CASE
            WHEN EXTRACT(isodow FROM public.lesson.date_of_lesson) = 1 THEN 'Monday'
            WHEN EXTRACT(isodow FROM public.lesson.date_of_lesson) = 2 THEN 'Tuesday'
            WHEN EXTRACT(isodow FROM public.lesson.date_of_lesson) = 3 THEN 'Wednesday'
