@@ -1,5 +1,6 @@
-CREATE TYPE LESSON_TYPE AS ENUM ('individual', 'group', 'ensamble');
+CREATE TYPE LESSON_TYPE AS ENUM ('individual', 'group', 'ensemble');
 CREATE TYPE SKILL_LEVEL AS ENUM ('beginner', 'intermediate', 'advanced');
+CREATE TYPE MONTH AS ENUM ('jan', 'dec', 'nov');
 
 CREATE TABLE instrument (
  instrument_name VARCHAR(50) NOT NULL
@@ -62,7 +63,8 @@ ALTER TABLE instructor ADD CONSTRAINT PK_instructor PRIMARY KEY (id);
 CREATE TABLE payment (
  id INT GENERATED ALWAYS AS IDENTITY NOT NULL,
  total_amount INT,
- instructor_id INT NOT NULL
+ instructor_id INT NOT NULL,
+ month MONTH NOT NULL
 );
 
 ALTER TABLE payment ADD CONSTRAINT PK_payment PRIMARY KEY (id);
@@ -92,7 +94,8 @@ CREATE TABLE student_payment (
  sibling_discount FLOAT(10),
  rental_cost INT,
  lessons_price INT,
- student_id INT NOT NULL
+ student_id INT NOT NULL,
+ month MONTH NOT NULL
 );
 
 ALTER TABLE student_payment ADD CONSTRAINT PK_student_payment PRIMARY KEY (id);
@@ -130,7 +133,6 @@ CREATE TABLE lesson (
  lesson_end TIME(6) NOT NULL,
  lesson_price_id INT,
  payment_id INT,
- student_payment_id INT,
  date_of_lesson DATE NOT NULL
 );
 
@@ -154,6 +156,14 @@ CREATE TABLE rented (
 );
 
 ALTER TABLE rented ADD CONSTRAINT PK_rented PRIMARY KEY (student_id,school_instrument_id);
+
+
+CREATE TABLE student_lesson (
+ student_payment_id INT NOT NULL,
+ lesson_id INT NOT NULL
+);
+
+ALTER TABLE student_lesson ADD CONSTRAINT PK_student_lesson PRIMARY KEY (student_payment_id,lesson_id);
 
 
 CREATE TABLE ensemble (
@@ -221,7 +231,6 @@ ALTER TABLE booked_time ADD CONSTRAINT FK_booked_time_0 FOREIGN KEY (instructor_
 
 ALTER TABLE lesson ADD CONSTRAINT FK_lesson_0 FOREIGN KEY (lesson_price_id) REFERENCES price (id);
 ALTER TABLE lesson ADD CONSTRAINT FK_lesson_1 FOREIGN KEY (payment_id) REFERENCES payment (id);
-ALTER TABLE lesson ADD CONSTRAINT FK_lesson_2 FOREIGN KEY (student_payment_id) REFERENCES student_payment (id);
 
 
 ALTER TABLE personal_skill ADD CONSTRAINT FK_personal_skill_0 FOREIGN KEY (student_id) REFERENCES student (id);
@@ -230,6 +239,10 @@ ALTER TABLE personal_skill ADD CONSTRAINT FK_personal_skill_1 FOREIGN KEY (instr
 
 ALTER TABLE rented ADD CONSTRAINT FK_rented_0 FOREIGN KEY (student_id) REFERENCES student (id);
 ALTER TABLE rented ADD CONSTRAINT FK_rented_1 FOREIGN KEY (school_instrument_id) REFERENCES school_instrument (id);
+
+
+ALTER TABLE student_lesson ADD CONSTRAINT FK_student_lesson_0 FOREIGN KEY (student_payment_id) REFERENCES student_payment (id);
+ALTER TABLE student_lesson ADD CONSTRAINT FK_student_lesson_1 FOREIGN KEY (lesson_id) REFERENCES lesson (id);
 
 
 ALTER TABLE ensemble ADD CONSTRAINT FK_ensemble_0 FOREIGN KEY (lesson_id) REFERENCES lesson (id);

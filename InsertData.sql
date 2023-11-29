@@ -19,7 +19,9 @@ VALUES
   ('1560438750','Aurora','Valenzuela','070-246 13 45','etiam.ligula.tortor@hotmail.com','Ap #964-5530 Donec Ave','53309','Nässjö'),
   ('7633417521','Ethan','Arnold','070-535 86 65','commodo@yahoo.net','378-3933 Leo. Ave','74267','Vetlanda'),
   ('8602253436','Howard','May','070-182 85 42','erat@icloud.net','Ap #169-8473 Aliquam Av.','72126','Ludvika'),
-  ('7204015641','Dacey','Hines','070-749 26 36','suspendisse.aliquet.molestie@outlook.org','899-1607 Donec St.','53138','Ockelbo');
+  ('7204015641','Dacey','Hines','070-749 26 36','suspendisse.aliquet.molestie@outlook.org','899-1607 Donec St.','53138','Ockelbo'),
+  ('7204014641','Dacey','Hines','070-749 26 36','suspendisse.aliquet.molestie@outlook.org','899-1607 Donec St.','53138','Ockelbo'),
+  ('7204114641','Dacey','Hines','070-749 26 36','suspendisse.aliquet.molestie@outlook.org','899-1607 Donec St.','53138','Ockelbo');
 
 
 
@@ -38,7 +40,9 @@ VALUES
   ('4612283314'),
   ('0190395441'),
   ('9113559450'),
-  ('2736441621');
+  ('2736441621'),
+  ('7204014641'),
+  ('7204114641');
 
 
 INSERT INTO student (person_ssn,contact_person_id)
@@ -48,7 +52,7 @@ VALUES
   ('6252015663',3),
   ('6800022063',3),
   ('0415637933',4),
-  ('9158353929',4);
+  ('9158353929',4),
   ('1560438750',5),
   ('7633417521',6),
   ('8602253436',4),
@@ -69,21 +73,11 @@ VALUES
 
 INSERT INTO instrument (instrument_name)
 VALUES
-('Piano'),
-('Guitar'),
-('Violin'),
-('Trumpet'),
-('Flute'),
-('Drums'),
-('Saxophone'),
-('Clarinet'),
-('Cello'),
-('Bass_Guitar'),
-('Harp'),
-('Trombone'),
-('Oboe'),
-('French_Horn'),
-('Mandolin');
+  ('piano'),  
+  ('guitar'),  
+  ('violin'),  
+  ('flute'),  
+  ('drums');
 
 INSERT INTO personal_skill (student_id,instrument_name,skill)
 VALUES
@@ -117,9 +111,9 @@ VALUES
     ('group', 'beginner', 300),
     ('group', 'intermediate', 350),
     ('group', 'advanced', 400),
-    ('ensamble', 'beginner', 200),
-    ('ensamble', 'intermediate', 200),
-    ('ensamble', 'advanced', 200);
+    ('ensemble', 'beginner', 200),
+    ('ensemble', 'intermediate', 200),
+    ('ensemble', 'advanced', 200);
 
 
 INSERT INTO student_payment (sibling_discount,rental_cost,lessons_price,student_id,month)
@@ -177,7 +171,7 @@ VALUES
   (10,5,'nov'),
   (10,6,'nov');
 
-INSERT INTO lesson (lesson_start,lesson_end,lesson_price_id,payment_id,student_payment_id,date_of_lesson)
+INSERT INTO lesson (lesson_start,lesson_end,lesson_price_id,payment_id,date_of_lesson)
 VALUES
   ('080000','100000',1,9,'151223'),
   ('150000','160000',2,17,'281123'),
@@ -319,7 +313,7 @@ VALUES
   (33,2,4,'intermediate','piano'),
   (34,2,4,'advanced','violin');
 
-INSERT INTO ensamble (lesson_id,min_number_of_students,max_number_of_students,genre)
+INSERT INTO ensemble (lesson_id,min_number_of_students,max_number_of_students,genre)
 VALUES
   (35,2,4,'jazz'),
   (36,2,5,'rock'),
