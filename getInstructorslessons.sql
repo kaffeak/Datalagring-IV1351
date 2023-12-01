@@ -4,7 +4,7 @@ INNER JOIN public.lesson ON public.payment.id = public.lesson.payment_id
 INNER JOIN public.instructor ON public.payment.instructor_id = public.instructor.id
 INNER JOIN public.person ON public.instructor.person_ssn = public.person.ssn
 INNER JOIN public.month ON EXTRACT(MONTH FROM public.lesson.date_of_lesson) = public.month.id
-WHERE public.month.name = 'dec'
+WHERE public.month.name = 'dec' AND EXTRACT(YEAR FROM public.lesson.date_of_lesson) = '2023'
 GROUP BY public.payment.instructor_id, public.person.first_name, public.person.last_name
-HAVING COUNT(public.lesson.id) > 0
+HAVING COUNT(public.lesson.id) > 2
 ORDER BY public.payment.instructor_id;
