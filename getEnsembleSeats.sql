@@ -21,6 +21,6 @@ INNER JOIN (
 	FROM public.student_lesson
 	GROUP BY lesson_id
 ) AS subquery ON public.lesson.id = subquery.lesson_id
-WHERE EXTRACT(WEEK FROM public.lesson.date_of_lesson) = 52
+WHERE EXTRACT(WEEK FROM public.lesson.date_of_lesson) = 52 AND EXTRACT(YEAR FROM public.lesson.date_of_lesson) = '2023'
 GROUP BY day_of_week, public.ensemble.genre, no_of_free_seats
 ORDER BY day_of_week;
