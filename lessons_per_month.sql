@@ -6,5 +6,5 @@ SELECT month.name AS month,
 FROM lesson
 JOIN month ON EXTRACT(MONTH FROM lesson.date_of_lesson) = month.id
 JOIN price ON lesson.lesson_price_id = price.id
+WHERE EXTRACT(YEAR FROM lesson.date_of_lesson) = '2023'
 GROUP BY month.name
-ORDER BY month.id
