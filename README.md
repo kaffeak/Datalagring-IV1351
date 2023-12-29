@@ -1,12 +1,12 @@
 # Datalagring-IV1351 task2
 
+Files:
+
 SoundGoodDB.astah is the astah model file based on the instructions in task2 of the project in IV1352
 SoundGoodDB.sql contains the SQL script to create the database from the SoundGoodDB.astah file.
 insertdata.sql contains the SQL script we used to put in mock data into the database.
 
 Instructions:
-
-# Datalagring-IV1351 task1
 
 Project
 One single database application will be created during the project. The project tasks are to be presented at five different seminars. The first three project tasks, and the first three seminars, are mandatory. The fourth project task, and the fourth seminar, is optional, and serves only to improve the grade. The fifth seminar, in January, is an opportunity to re-submit seminars you did not pass or to improve your score for one or more seminars. You can get scores for all tasks, both mandatory and optional, also at the fifth seminar. 
