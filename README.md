@@ -2,8 +2,8 @@
 
 Files:
 
-SoundGoodInherence.astah is the astah model file based on the instructions in task 1 of the project in IV1352 using inherence.
-SoundGoodNonInherence.astah is the astah model file based on the instructions in task 1 of the project in IV1352 not using inherence. 
+* SoundGoodInherence.astah is the astah model file based on the instructions in task 1 of the project in IV1352 using inherence.
+* SoundGoodNonInherence.astah is the astah model file based on the instructions in task 1 of the project in IV1352 not using inherence. 
 
 Instructions:
 
