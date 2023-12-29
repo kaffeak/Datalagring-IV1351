@@ -2,7 +2,15 @@
 
 Files:
 
+SoundGoodDB.astah is the astah model file based on the instructions in task2 of the project in IV1352 SoundGoodDB.sql contains the SQL script to create the database from the SoundGoodDB.astah file. insertdata.sql contains the SQL script we used to put in mock data into the database.
 
+* SoundGoodDBt3.asta is the astah database file based on the instructions in task 3 of the project in IV1352.
+* SoundGoodDBt3.sql is the sql script to create the database from the astah model.
+* InsertData.sql is a script that fills the database with mockdata.
+* lessons_per_mont.sql is script one in the mandatory part of the instructions.
+* getSibling.sql is script two in the mandatory part of the instructions.
+* getInstructorslessons.sql is script three in the mandatory part of the instructions
+* getEnsambleSeats.sql is script four in the mandatory part of the instructions.
 
 Instructions:
 
@@ -89,6 +97,7 @@ No of Siblings |	No of Students
 0 |	3
 
 1 |	2
+
 2 |	5
 
   4. List ids and names of all instructors who has given more than a specific number of lessons during the current month. Sum all lessons, independent of type, and sort the result by the number of given lessons. This query will be used to find instructors risking to work too much, and will be executed daily. Table 3 below is an example result of such a query, illustrating the expected output.
