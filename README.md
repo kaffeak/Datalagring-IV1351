@@ -83,26 +83,39 @@ Dec   |	 10	  |      4	    |   4 	 |     2
 
   2. Show how many students there are with no sibling, with one sibling, with two siblings, etc. This query is expected to be performed a few times per week. The database must contain students with no sibling, one sibling and two siblings, but doesn't have to contain students with more than two siblings. Note that it's not allowed to solve this by just adding a column with sibling count (maybe called no_of_siblings or something similar) to the student table. Such a solution would be almost impossible to maintain since it doesn't tell who's a sibling of who. If a student quits, there wont be any way to update the sibling count of that student's siblings. Table 2 below is an example result of such a query, illustrating the expected output.
 Table 2. Expected output for query 2. This example is only meant to illustrate the expected rows and columns. It's perfectly fine to change text formatting, and also to change the values in the No of Students column. The values in the No of Siblings column must however be as specified: 0, 1, 2.
-No of Siblings	No of Students
-0	3
-1	2
-2	5
 
-  3. List ids and names of all instructors who has given more than a specific number of lessons during the current month. Sum all lessons, independent of type, and sort the result by the number of given lessons. This query will be used to find instructors risking to work too much, and will be executed daily. Table 3 below is an example result of such a query, illustrating the expected output.
+No of Siblings |	No of Students
+
+0 |	3
+
+1 |	2
+2 |	5
+
+  4. List ids and names of all instructors who has given more than a specific number of lessons during the current month. Sum all lessons, independent of type, and sort the result by the number of given lessons. This query will be used to find instructors risking to work too much, and will be executed daily. Table 3 below is an example result of such a query, illustrating the expected output.
 Table 3. Expected output for query 3. This example is only meant to illustrate the expected rows and columns. It's perfectly fine to change text formatting, and also to change the values.
-Instructor Id	First Name	Last Name	No of Lessons
-13	Albus	Dumbledore	5
-15	Pomona	Sprout	5
-2	Gilderoy	Lockhart	4
+
+Instructor Id |	First Name |	Last Name	| No of Lessons
+
+13 |	Albus |	Dumbledore |	5
+
+15 |	Pomona |	Sprout |	5
+
+2	| Gilderoy	| Lockhart |	4
+
 The following queries will be performed programmatically, and the results will be displayed on Soundgood's web page. You only have to create the queries, not the web page.
 
-  4. List all ensembles held during the next week, sorted by music genre and weekday. For each ensemble tell whether it's full booked, has 1-2 seats left or has more seats left. HINT: you might want to use a CASE statement in your query to produce the desired output.  Table 4 below is an example result of such a query, illustrating the expected output.
+  6. List all ensembles held during the next week, sorted by music genre and weekday. For each ensemble tell whether it's full booked, has 1-2 seats left or has more seats left. HINT: you might want to use a CASE statement in your query to produce the desired output.  Table 4 below is an example result of such a query, illustrating the expected output.
 Table 4. Expected output for query 4. This example is only meant to illustrate the expected rows and columns. It's perfectly fine to change text formatting, and also to change the values.
-Day	Genre	No of Free Seats
-Tue	Gospel	No Seats
-Wed	Punk	1 or 2 Seats
-Wed	Rock	No Seats
-Fri	Rock	Many Seats
+
+Day |	Genre |	No of Free Seats
+
+Tue |	Gospel |	No Seats
+
+Wed |	Punk |	1 or 2 Seats
+
+Wed |	Rock |	No Seats
+
+Fri |	Rock |	Many Seats
 
 Below is specified what shall be written in the report.
 
