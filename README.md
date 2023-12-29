@@ -1,18 +1,10 @@
 # Datalagring-IV1351 task3
 
+Files:
 
 
-Instructions:
-
-# Datalagring-IV1351 task2
-
-SoundGoodDB.astah is the astah model file based on the instructions in task2 of the project in IV1352
-SoundGoodDB.sql contains the SQL script to create the database from the SoundGoodDB.astah file.
-insertdata.sql contains the SQL script we used to put in mock data into the database.
 
 Instructions:
-
-# Datalagring-IV1351 task1
 
 Project
 
@@ -79,12 +71,11 @@ The following queries will be executed manually, to generate analysis reports.
 
   1. Show the number of lessons given per month during a specified year. This query is expected to be performed a few times per week. It shall be possible to retrieve the total number of lessons per month (just one number per month) and the specific number of individual lessons, group lessons and ensembles (three numbers per month). It's not required that all four numbers (total plus one per lesson type) for a particular month are on the same row; you're allowed to have one row for each number as long as it's clear to which month each number belongs. However, it's most likely easier to understand the result if you do place all numbers for a particular month on the same row, and it's an interesting exercise, therefore you're encouraged to try. Table 1 below is an example result of such a query, illustrating the expected output.
 Table 1. Expected output for query 1. This example is only meant to illustrate the expected rows and columns. It's perfectly fine to change text formatting, and also to change the values.
-Month
 
-Total	Individual	Group	Ensemble
-Oct	2	1	0	1
-Nov	3	0	2	1
-Dec	10	4	4	2
+Month | Total |	Individual |	Group |	Ensemble
+Oct   |	  2   |	     1  	  |   0   |	    1
+Nov	  |   3   |	     0     |	  2	  |     1
+Dec   |	 10	  |      4	    |   4 	 |     2
 
 
   2. Show how many students there are with no sibling, with one sibling, with two siblings, etc. This query is expected to be performed a few times per week. The database must contain students with no sibling, one sibling and two siblings, but doesn't have to contain students with more than two siblings. Note that it's not allowed to solve this by just adding a column with sibling count (maybe called no_of_siblings or something similar) to the student table. Such a solution would be almost impossible to maintain since it doesn't tell who's a sibling of who. If a student quits, there wont be any way to update the sibling count of that student's siblings. Table 2 below is an example result of such a query, illustrating the expected output.
