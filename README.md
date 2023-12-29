@@ -9,7 +9,6 @@ insertdata.sql contains the SQL script we used to put in mock data into the data
 Instructions:
 
 Project
-
 One single database application will be created during the project. The project tasks are to be presented at five different seminars. The first three project tasks, and the first three seminars, are mandatory. The fourth project task, and the fourth seminar, is optional, and serves only to improve the grade. The fifth seminar, in January, is an opportunity to re-submit seminars you did not pass or to improve your score for one or more seminars. You can get scores for all tasks, both mandatory and optional, also at the fifth seminar. 
 
 You are encouraged to collaborate and discuss with as many other students as you wish when doing the project, group discussions always give a better result than individual work. You are however allowed to create the actual solution in groups of max three students. That is, your solution is allowed to be identical to the solution of at most two other students. You are also allowed to work alone, but that is not recommended. The written report is individual, and may not be written together with any other student.
